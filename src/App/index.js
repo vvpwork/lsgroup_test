@@ -42,13 +42,19 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan("combined"));
 
-app.get("/", express.static(path.resolve(__dirname, "../client/build")));
 userRoutes(app);
 commentRoutes(app);
 listUsersRoutes(app);
 authRoutes(app);
 listCommentsRoutes(app);
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "../client/build", "200.html"));
+  });
+}
 app.use(celebrate.errors());
 app.use(Sentry.Handlers.errorHandler());
 app.use(err);
