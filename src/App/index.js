@@ -13,6 +13,7 @@ const userRoutes = require("../routes/user/userRoutes");
 const listUsersRoutes = require("../routes/listUsers/listUsersRoutes");
 const commentRoutes = require("../routes/comment/commentRoutes");
 const authRoutes = require("../routes/auth/authRoutes");
+const listCommentsRoutes = require('../routes/listComments/listCommentsRoutes');
 
 const app = express();
 const store = new MongoDBStore({
@@ -44,6 +45,7 @@ userRoutes(app);
 commentRoutes(app);
 listUsersRoutes(app);
 authRoutes(app);
+listCommentsRoutes(app);
 
 app.use(celebrate.errors());
 app.use(Sentry.Handlers.errorHandler());
