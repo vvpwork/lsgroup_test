@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const Sentry = require("@sentry/node");
 const bodyParser = require("body-parser");
 const celebrate = require("celebrate");
@@ -13,7 +14,7 @@ const userRoutes = require("../routes/user/userRoutes");
 const listUsersRoutes = require("../routes/listUsers/listUsersRoutes");
 const commentRoutes = require("../routes/comment/commentRoutes");
 const authRoutes = require("../routes/auth/authRoutes");
-const listCommentsRoutes = require('../routes/listComments/listCommentsRoutes');
+const listCommentsRoutes = require("../routes/listComments/listCommentsRoutes");
 
 const app = express();
 const store = new MongoDBStore({
@@ -41,6 +42,7 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan("combined"));
 
+app.get("/", express.static(path.resolve(__dirname, "../client/build")));
 userRoutes(app);
 commentRoutes(app);
 listUsersRoutes(app);
