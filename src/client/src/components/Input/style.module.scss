@@ -1,0 +1,21 @@
+@import "../../styles//variables.scss";
+.container {
+  box-sizing: border-box;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 5px 20px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+  color: $fontBlack;
+  &:focus {
+    border-color: $mainBlue;
+    box-shadow: 0 2px 4px lighten($mainBlue, 6);
+    outline: none;
+  }
+  &::placeholder {
+    color: lighten($fontBlack, 4);
+  }
+}

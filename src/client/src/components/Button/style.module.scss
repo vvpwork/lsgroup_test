@@ -1,0 +1,53 @@
+@import "../../styles/variables.scss";
+
+%button {
+  display: block;
+  box-sizing: border-box;
+  box-shadow: none;
+  outline: none;
+  width: 428px;
+  height: 80px;
+  padding: 14px 10px;
+  border: none;
+  border-radius: 11px;
+  text-align: center;
+  font-family: $fontBold;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 87.4%;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: none;
+  }
+}
+
+@mixin btn($bg, $col) {
+  background-color: $bg;
+  color: $col;
+  &:hover,
+  &:focus {
+    background-color: $col;
+    color: $bg;
+  }
+  &:active {
+    color: $col;
+    background-color: $bg;
+  }
+}
+.rose {
+  @extend %button;
+  @include btn($mainRose, $fontWhite);
+}
+
+.blue {
+  @extend %button;
+  @include btn($mainBlue, $fontWhite);
+}
+
+.white {
+  @extend %button;
+  @include btn($fontWhite, $fontBlack);
+}
