@@ -1,16 +1,13 @@
+const createError = require("http-errors");
 const userModel = require("./userModel");
 
-const getUser = async (req, res) => {
+const getUser = async (req, res, next) => {
   try {
-    const id = req.query.id;
+    const { id } = req.query;
     const user = await userModel.findOne({ _id: id }).exec();
     return res.status(200).send(user);
   } catch (err) {
-    console.log(err);
-    res.status(400).send({
-      comment: "user not found",
-      err,
-    });
+    next(createError(404, "user not found"));
   }
 };
 

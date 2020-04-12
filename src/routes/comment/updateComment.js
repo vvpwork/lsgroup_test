@@ -1,6 +1,7 @@
+const createError = require("http-errors");
 const commentModel = require("./commentModel");
 
-const updateComment = async (req, res) => {
+const updateComment = async (req, res, next) => {
   try {
     const { id, description } = req.body;
     const oldComment = await commentModel.findById(id);
@@ -8,10 +9,7 @@ const updateComment = async (req, res) => {
     const newComment = await oldComment.save();
     return res.status(201).send(newComment);
   } catch (err) {
-    return res.status(404).send({
-      comment: "comment not found",
-      err,
-    });
+    next(createError(404, 'comment not found'));
   }
 };
 

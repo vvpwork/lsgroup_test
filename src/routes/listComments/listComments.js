@@ -1,14 +1,12 @@
+const createError = require('http-errors');
 const commentModel = require("../comment/commentModel");
 
-const listComments = async (req, res) => {
+const listComments = async (req, res, next) => {
   try {
     const comments = await commentModel.find();
     res.send(comments);
   } catch (err) {
-    res.status(404).send({
-      comment: "Comment not found",
-      err,
-    });
+    next(createError(404, "comments not found"))
   }
 };
 

@@ -1,7 +1,8 @@
-const userModel = require("./userModel");
 const argon2 = require("argon2");
+const createError = require("http-errors");
+const userModel = require("./userModel");
 
-const updateUser = async (req, res) => {
+const updateUser = async (req, res, next) => {
   try {
     let { id, comment, password, ...user } = req.body;
     if (password) password = await argon2.hash(password);
@@ -13,11 +14,7 @@ const updateUser = async (req, res) => {
 
     return res.status(201).send(updateUser);
   } catch (err) {
-    console.log(err);
-    res.status(404).send({
-      comment: "user not found",
-      err,
-    });
+    next(createError(404, "user not found"));
   }
 };
 

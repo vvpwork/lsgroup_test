@@ -5,7 +5,7 @@
         method: post
         req:
             header: 
-                X-api-key: test_api_key
+                x-api-key: test_api_key
             params: null,
             query: null, 
             body:
@@ -28,7 +28,7 @@
         method: get
         req:
             header: 
-                X-api-key: test_api_key
+                x-api-key: test_api_key
             params: null
             query: 
                 id: userID 
@@ -50,7 +50,7 @@
         method: patch
         req:
             header:
-                X-api-key: test_api_key
+                x-api-key: test_api_key
             params: null
             query: null
             body:
@@ -78,7 +78,7 @@
         method: delete
         req:
             header:
-                X-api-key: test_api_key
+                x-api-key: test_api_key
             params: userID
             query: null
             body: null
@@ -93,7 +93,7 @@
         method: get
         req:
             header:
-                X-api-key: test_api_key
+                x-api-key: test_api_key
             params: null
             query: null
             body: null
@@ -121,7 +121,7 @@
         method: post
         req:
             header:
-                X-api-key: test_api_key 
+                x-api-key: test_api_key 
             params: null,
             query: null,
             body:{
@@ -143,7 +143,7 @@
         method: get
         req:
             header: 
-                X-api-key: test_api_key
+                x-api-key: test_api_key
             params: null
             query: 
                 id: commentID 
@@ -162,7 +162,7 @@
         method: patch
         req:
             header: 
-                X-api-key: test_api_key
+                x-api-key: test_api_key
             params: null
             query: nul
             body:
@@ -186,7 +186,7 @@
         method: delete
         req:
             header: 
-                X-api-key: test_api_key
+                x-api-key: test_api_key
             params: commentID
             query: nu  
             body: null
@@ -201,7 +201,7 @@
         method: get
         req:
             header: 
-                X-api-key: test_api_key
+                x-api-key: test_api_key
             params: null
             query: null
             body: null
