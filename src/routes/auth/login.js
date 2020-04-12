@@ -2,7 +2,6 @@ const argon2 = require("argon2");
 const createError = require("http-errors");
 const generateJWT = require("./generateJWT");
 const userModel = require("../user/userModel");
-
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;

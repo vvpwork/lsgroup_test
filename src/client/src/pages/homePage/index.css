@@ -1,0 +1,15 @@
+.modal_registration-enter {
+  opacity: 0;
+}
+.modal_registration-enter-active {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+
+.modal_registration-exit {
+  opacity: 1;
+}
+.modal_registration-exit-active {
+  opacity: 0;
+  transition: opacity 400ms;
+}

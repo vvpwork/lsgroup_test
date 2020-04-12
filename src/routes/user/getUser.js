@@ -10,5 +10,4 @@ const getUser = async (req, res, next) => {
     next(createError(404, "user not found"));
   }
 };
-
 module.exports = getUser;

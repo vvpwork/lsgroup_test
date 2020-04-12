@@ -9,5 +9,6 @@ module.exports = {
     name: process.env.DB_NAME,
   },
   api_key: process.env.API_KEY,
+  api_url: process.env.API_URL,
   secret_key: process.env.SECRET_KEY,
 };
