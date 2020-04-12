@@ -4,8 +4,8 @@ const config = require("../config");
 const jwtMiddelware = async (req, res, next) => {
   try {
     const { headers } = req;
-    const userToken = headers["x-auth-token"];
-    const apiKey = headers["x-api-key"];
+    const userToken = headers["X-auth-token"];
+    const apiKey = headers["X-api-key"];
     const sessionToken = req.session.token;
 
     if (apiKey === config.api_key) return next();

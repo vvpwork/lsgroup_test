@@ -3,16 +3,12 @@ const generateJWT = require("./generateJWT");
 const userModel = require("../user/userModel");
 
 const login = async (req, res) => {
-  console.log(req)
   const { email, password } = req.body;
-  console.log(email);
-  const user = await userModel.findOne({ email });
-  console.log(user);
+  const user = await userModel.findOne({ email }).populate("comment").exec();
   if (!user) {
     return res.status(404).send("user not found");
   }
   const correctPassword = argon2.verify(user.password, password);
-  console.log(correctPassword);
   if (!correctPassword) return res.status(404).send("password incorect");
   const userJWT = await generateJWT(user);
   req.session.token = userJWT;

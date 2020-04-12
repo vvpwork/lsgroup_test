@@ -9,10 +9,11 @@ const Input = ({
   placeholder,
   type = "text",
   style,
+  required,
 }) => {
   return (
     <input
-      {...{ value, name, onChange, placeholder, type, style }}
+      {...{ value, name, onChange, placeholder, type, style, required }}
       className={s.container}
     />
   );
@@ -25,6 +26,7 @@ Input.propTypes = {
   placeholder: T.string,
   type: T.string,
   style: T.object,
+  required: T.bool,
 };
 
 export default Input;

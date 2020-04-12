@@ -1,5 +1,5 @@
 import React from "react";
-// import ReactDOM from 'react-dom';
+import { hydrate } from "react-dom";
 import { render } from "react-snapshot";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -9,14 +9,12 @@ import "./styles/index.scss";
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
-render(
-  <React.StrictMode>
-    <Provider store={store({})}>
-      <BrowserRouter>
-        <Route component={App} />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+hydrate(
+  <Provider store={store({})}>
+    <BrowserRouter>
+      <Route component={App} />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

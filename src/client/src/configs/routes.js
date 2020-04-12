@@ -1,4 +1,4 @@
 export default {
   HOME: "/",
-  USER: "/room/:id",
+  USER: "/room",
 };
