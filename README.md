@@ -61,7 +61,7 @@
                     name: string,
                     surname: string, 
         res:
-            status: 201
+            status: 201 
             comment: "return updated user"
                 }
             {
