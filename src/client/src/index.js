@@ -1,5 +1,4 @@
 import React from "react";
-import { hydrate } from "react-dom";
 import { render } from "react-snapshot";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -9,7 +8,7 @@ import "./styles/index.scss";
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
-hydrate(
+render(
   <Provider store={store({})}>
     <BrowserRouter>
       <Route component={App} />

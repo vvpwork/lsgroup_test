@@ -1,24 +1,28 @@
-import React, { useState } from "react";
-import Input from "../Input";
-import Button from "../Button";
-import s from "./style.module.scss";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { registrationAsync } from '../../redux/login/loginAsync';
+import Input from '../Input';
+import Button from '../Button';
+import s from './style.module.scss';
 
 const RegistrForm = () => {
   const [state, setState] = useState({
-    email: "",
-    password: "",
-    name: "",
-    surname: "",
+    email: '',
+    password: '',
+    name: '',
+    surname: '',
   });
+  const dispatch = useDispatch();
   const { email, password, name, surname } = state;
   const inputChange = ({ target }) => {
-    setState((prevState) => ({
+    setState(prevState => ({
       ...prevState,
       ...{ [target.name]: target.value },
     }));
   };
-  const formSubmit = (ev) => {
+  const formSubmit = ev => {
     ev.preventDefault();
+    dispatch(registrationAsync(state));
     console.log(state);
   };
   return (
@@ -50,7 +54,9 @@ const RegistrForm = () => {
           </div>
         </label>
         <label htmlFor="" className={s.label}>
-          <p className={s.text}>e-mail<span>*</span></p>
+          <p className={s.text}>
+            e-mail<span>*</span>
+          </p>
           <div className={s.input}>
             <Input
               name="email"
@@ -62,7 +68,9 @@ const RegistrForm = () => {
           </div>
         </label>
         <label htmlFor="" className={s.label}>
-          <p className={s.text}>password<span>*</span></p>
+          <p className={s.text}>
+            password<span>*</span>
+          </p>
           <div className={s.input}>
             <Input
               name="password"

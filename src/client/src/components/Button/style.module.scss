@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 %button {
   display: block;
@@ -49,5 +49,16 @@
 
 .white {
   @extend %button;
-  @include btn($fontWhite, $mainRose)
+  @include btn($fontWhite, $mainRose);
+}
+
+.add {
+  @extend %button;
+  @include btn($mainBlue, $fontWhite);
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  font-weight: normal;
+  font-size: 120px;
+  line-height: 105px;
 }

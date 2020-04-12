@@ -1,0 +1,76 @@
+@import '../../styles//variables.scss';
+.container {
+  position: relative;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding-top: 31vh;
+  width: 100vw;
+  height: 100vh;
+  background: url('../../assets/img/bg-home.png') no-repeat;
+  background-size: cover;
+  @media (min-width: 1920px) {
+    background-position-y: -15vh;
+  }
+  .title {
+    position: absolute;
+    top: 14vh;
+    right: 3vw;
+    margin: 0;
+    padding: 0;
+    font-family: $fontBold;
+    font-size: 144px;
+    line-height: 126px;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  .logo {
+    position: absolute;
+    top: 5vh;
+    left: 3vw;
+    width: 124px;
+  }
+  .avatar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    right: 3vw;
+    top: 1vh;
+    width: 200px;
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80vw;
+    margin: 0 auto;
+    .label {
+      padding: 0;
+      margin: 0;
+      background: none;
+      width: 500px;
+      & > input {
+        background: none;
+        border-bottom: 3px solid $fontWhite;
+        box-shadow: none;
+        transition: all 200ms linear;
+        color: $mainBlue;
+        &:focus {
+          border-color: $mainRose;
+        }
+      }
+    }
+    .formText {
+      padding: 0;
+      margin: 0;
+      font-size: 48px;
+      line-height: 71px;
+      color: $fontWhite;
+    }
+    margin-bottom: 6vh;
+  }
+  .list {
+    width: 80vw;
+    margin: 0 auto;
+  }
+}
