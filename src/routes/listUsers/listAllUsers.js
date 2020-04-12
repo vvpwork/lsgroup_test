@@ -1,3 +1,4 @@
+const createError = require("http-errors");
 const userModel = require("../user/userModel");
 
 const listAllUsers = async (req, res) => {
@@ -5,10 +6,7 @@ const listAllUsers = async (req, res) => {
     const users = await userModel.find().populate("comment").exec();
     res.send(users);
   } catch (err) {
-    res.status(404).send({
-      comment: "users not found",
-      err,
-    });
+    next(createError(404, "users empty"));
   }
 };
 

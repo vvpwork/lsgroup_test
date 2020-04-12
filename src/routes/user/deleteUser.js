@@ -2,7 +2,7 @@ const userModel = require("./userModel");
 
 const deletUser = async (req, res) => {
   try {
-    const id = req.params.id;
+    const { id } = req.params;
     const { deletedCount } = await userModel.deleteOne({ _id: id });
     res.status(deletedCount ? 200 : 404).send({
       deleted: deletedCount ? true : false,
