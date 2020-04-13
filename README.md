@@ -1,5 +1,20 @@
 # lsgroup_test
+api_url: https://lsgroup.herokuapp.com/
 
+build client:
+  cd ./src/client yarn build
+ 
+ and 
+
+start server: 
+    yarn start
+
+
+
+errors:
+ 400 - bad request
+ 404 - not found 
+ 401 - 	Unauthorized
 ## endpoints:
    # "/user":
         method: post
