@@ -7,7 +7,7 @@ export default (token='') => {
   const axiosApp = axios.create({
     baseURL: process.env.API_URL,
     timeout: 3000,
-    headers: { "X-auth-token": token },
+    headers: { "x-auth-token": token },
   });
   return axiosApp;
 };

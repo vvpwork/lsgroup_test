@@ -1,22 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const commentSlice = createSlice({
-  name: "commnet",
+  name: 'commnet',
   initialState: [],
   reducers: {
+    commentRequest: state => state,
     commentInit: (state, { payload }) => payload,
-    updateComment: (state, { payload }) => state.push(payload),
+    addComment: (state, { payload }) => [...state, payload],
     deleteComment: (state, { payload }) =>
-      state.filter((comment) => comment._id !== payload),
+      state.filter(comment => comment._id !== payload),
     resetComment: (state, action) => [],
   },
 });
 
 export const {
   commentInit,
-  updateComment,
+  addComment,
   deleteComment,
   resetComment,
+  commentRequest,
 } = commentSlice.actions;
 
 export default commentSlice.reducer;

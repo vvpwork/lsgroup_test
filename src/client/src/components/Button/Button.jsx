@@ -17,7 +17,7 @@ const Button = ({
 
 Button.propTypes = {
   value: T.string,
-  theme: T.oneOf(['blue', 'rose', 'white', 'add']),
+  theme: T.oneOf(['blue', 'rose', 'white', 'add', 'close']),
   type: T.string,
   onClick: T.func,
 };
