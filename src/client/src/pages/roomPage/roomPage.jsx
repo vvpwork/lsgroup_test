@@ -6,10 +6,13 @@ import Avatar from '../../components/Avatar';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Logout from '../../components/logOut';
+import PopUp from '../../components/PopUp';
+import UserForm from '../../components/UserForm';
 
 import { addCommentAsync } from '../../redux/comment/commentAsync';
+import { userUpdateAsync } from '../../redux/user/userAsync';
 
-  import s from './style.module.scss';
+import s from './style.module.scss';
 
 const RoomPage = () => {
   const dispatch = useDispatch();
@@ -17,15 +20,21 @@ const RoomPage = () => {
   const user = useSelector(state => state.user);
 
   const [comment, setComment] = useState('');
+  const [isShowModal, setShowModal] = useState(false);
 
   const onChange = ({ target: { value } }) => {
     setComment(value);
   };
 
+  const submitChange = state => {
+    dispatch(userUpdateAsync(state));
+    setShowModal(false)
+  };
+
   const onSubmit = ev => {
     ev.preventDefault();
     dispatch(addCommentAsync(comment));
-    setComment('')
+    setComment('');
   };
 
   return (
@@ -37,7 +46,7 @@ const RoomPage = () => {
       <h1 className={s.title}>...comment on your day</h1>
 
       <div className={s.avatar}>
-        <Avatar name={user.name} />
+        <Avatar name={user.name} onClick={()=> setShowModal(true)} />
         <Logout />
       </div>
 
@@ -57,6 +66,12 @@ const RoomPage = () => {
       <div className={s.list}>
         <CommenList {...{ comments }} />
       </div>
+
+      {isShowModal && (
+        <PopUp toggle={()=>setShowModal(false)}>
+          <UserForm submit={submitChange} />
+        </PopUp>
+      )}
     </div>
   );
 };

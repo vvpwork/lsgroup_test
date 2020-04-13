@@ -8,7 +8,6 @@ export const addCommentAsync = description => (dispatch, getState) => {
   axios(token)
     .post('/comment', { author: id, description })
     .then(({ data }) => {
-      console.log(data);
       dispatch(addComment(data.comment));
     })
     .catch(err => dispatch(error(err.message)));
